@@ -5,9 +5,13 @@ export default {
     extend: {
       colors: {
         'txt-btn-h': 'var(--txt-btn-h)',
+        'btn-registrar': 'var(--btn-registrar)',
       },
       width: {
-        450: '450px',
+        1200: '1200px',
+      },
+      height: {
+        400: '400px'
       }
     },
   },

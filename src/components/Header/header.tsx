@@ -1,4 +1,5 @@
 import logo from '../../assets/descomplica.png';
+import Button from '../Buttons/button';
 import Container from '../Container/container';
 
 export default function Header() {
@@ -10,8 +11,8 @@ export default function Header() {
             <img src={logo} alt="logo descomplica" className='w-full' />
           </div>
           <div className='flex w-96 justify-between'>
-            <button className='w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl'>Cadastro</button>
-            <button className='w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl'>Alunos</button>
+            <Button customClass="w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl">Cadastro</Button>
+            <Button customClass="w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl">Alunos</Button>
           </div>
         </div>
       </Container>
