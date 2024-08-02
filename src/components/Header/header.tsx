@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/descomplica.png';
 import Button from '../Buttons/button';
 import Container from '../Container/container';
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Container customClass='mx-32 h-24'>
@@ -11,8 +14,18 @@ export default function Header() {
             <img src={logo} alt="logo descomplica" className='w-full' />
           </div>
           <div className='flex w-96 justify-between'>
-            <Button customClass="w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl">Cadastro</Button>
-            <Button customClass="w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl">Alunos</Button>
+            <Button
+              customClass="w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl"
+              onClick={() => navigate('/')}
+            >
+              Cadastro
+            </Button>
+            <Button
+              customClass="w-40 h-10 text-txt-btn-h font-bold border-2 border-txt-btn-h rounded-xl"
+              onClick={() => navigate('/students')}
+            >
+              Alunos
+            </Button>
           </div>
         </div>
       </Container>

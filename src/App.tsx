@@ -1,15 +1,16 @@
 import './global.css'
-import Header from "./components/Header/header"
-import Form from './components/Form/form'
-import Footer from './components/Footer/footer'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Register from './pages/Register/register'
+import Students from './pages/Students/students';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Form />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Register />}/>
+        <Route path='/students' element={<Students />}/>
+      </Routes>
+    </Router>
   )
 }
 

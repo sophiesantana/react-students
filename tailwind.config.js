@@ -11,6 +11,7 @@ export default {
       },
       width: {
         1200: '1200px',
+        400: '400px'
       },
       height: {
         450: '450px'
