@@ -1,12 +1,14 @@
 import './global.css'
 import Header from "./components/Header/header"
-import Input from './components/Input/input'
+import Form from './components/Form/form'
+import Footer from './components/Footer/footer'
 
 function App() {
   return (
     <>
       <Header />
-      <Input />
+      <Form />
+      <Footer />
     </>
   )
 }
