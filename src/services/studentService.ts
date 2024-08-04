@@ -20,7 +20,9 @@ export const getStudentById = (id: string): Promise<Student | null> => {
 }
 
 export const getStudentByParams = (data: string, optionSearch: string): Promise<Student[] | null> => {
-  return api.get<Student[]>(`/students?${optionSearch}=${data}`)
+  const selectedOption = optionSearch ? optionSearch : 'name';
+  const routeWithparams = `/students?${selectedOption}=${data}`;
+  return api.get<Student[]>(!data ? `/students` : routeWithparams)
     .then((response) => response.data)
     .catch((error) => {
       console.error('Erro ao buscar estudantes:', error);
