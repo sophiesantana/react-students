@@ -1,0 +1,18 @@
+services:
+  frontend:
+    container_name: frontend-react-students
+    build: .
+    ports:
+      - "3001:3001"
+    command: dev
+    volumes:
+      - ./:/app
+    environment:
+      NODE_ENV: development
+    networks:
+      - react-students-network
+
+networks:
+  react-students-network:
+    name: react-students-network
+    external: true
