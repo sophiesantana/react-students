@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Student } from "../../interfaces/StudentInterface";
 import ModalStudent from "../Modal/modalStudent";
+import { getStudents } from "../../services/studentService";
 
 interface StudentTableProps {
   students: Student[];
@@ -20,7 +21,7 @@ export default function Table({ students }: StudentTableProps) {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto w-11/12">
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
           <tr>

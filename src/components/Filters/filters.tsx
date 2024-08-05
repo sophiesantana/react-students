@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getStudentByParams } from "../../services/studentService";
 import { Student } from "../../interfaces/StudentInterface";
+import Button from "../Buttons/button";
 
 interface FiltersProps {
   setStudents: React.Dispatch<React.SetStateAction<Student[]>>;
@@ -20,7 +21,7 @@ export default function Filters({ setStudents }: FiltersProps) {
   };
 
   return (
-    <div className="flex justify-evenly w-full px-96 mb-3">
+    <div className="flex justify-evenly w-full px-80 mb-3">
       <input
         className="p-2 rounded-xl"
         type="text"
@@ -28,12 +29,17 @@ export default function Filters({ setStudents }: FiltersProps) {
         value={data}
         onChange={(e) => setData(e.target.value)}
       />
-      <select onChange={handleSelectChange}>
+      <select onChange={handleSelectChange} className="rounded-xl">
         <option value='name'>Nome</option>
         <option value='cpf'>CPF</option>
         <option value='email'>Email</option>
       </select>
-      <button onClick={handleRegister}>Buscar</button>
+      <Button
+        customClass="w-full max-w-40 h-10 font-bold bg-btn-registrar rounded-xl"
+        onClick={handleRegister}
+      >
+        Buscar
+      </Button>
     </div>
   )
 }

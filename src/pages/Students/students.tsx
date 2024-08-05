@@ -20,7 +20,7 @@ export default function Students() {
     <>
       <Header />
       <Container customClass='bg-form mx-32 h-450 rounded-xl mb-8'>
-        <Title customClass='flex justify-center font-bold text-2xl pt-8 mb-8'>Listagem de Alunos</Title>
+        <Title customClass='flex justify-center font-bold text-2xl pt-10 mb-8'>Listagem de Alunos</Title>
         <Filters setStudents={setStudents}/>
         <Container customClass="px-20 flex justify-center">
           { students.length > 0 ? <Table students={students} /> : <h2>Não existem alunos registrados.</h2> }

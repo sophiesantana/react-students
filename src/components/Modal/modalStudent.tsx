@@ -16,6 +16,24 @@ export default function ModalStudent({ onClose, studentId }: ModalStudentProps) 
     getStudentById(studentId).then((response) => setStudent(response!));
   }, []);
 
+  const handleUpdate = async () => {
+    try {
+      await updateStudentById(student!);
+      onClose();
+    } catch (error) {
+      console.error('Erro ao atualizar estudante:', error);
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      await deleteStudentById(studentId);
+      onClose();
+    } catch (error) {
+      console.error('Erro ao deletar estudante:', error);
+    }
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 left-0">
       <div onClick={onClose}>x</div>
@@ -57,13 +75,13 @@ export default function ModalStudent({ onClose, studentId }: ModalStudentProps) 
             <Container customClass='w-full h-20 flex items-center justify-evenly'>
               <Button
                 customClass="w-full max-w-40 h-10 font-bold bg-btn-registrar rounded-xl"
-                onClick={() => deleteStudentById(student?.id!)}
+                onClick={() => handleDelete()}
               >
                 Excluir
               </Button>
               <Button
                 customClass="w-full max-w-40 h-10 font-bold bg-btn-registrar rounded-xl"
-                onClick={() => updateStudentById(student!)}
+                onClick={() => handleUpdate()}
               >
                 Editar
               </Button>
