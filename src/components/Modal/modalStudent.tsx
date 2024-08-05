@@ -3,6 +3,7 @@ import Button from "../Buttons/button";
 import Container from "../Container/container";
 import { deleteStudentById, getStudentById, updateStudentById } from "../../services/studentService";
 import { Student } from "../../interfaces/StudentInterface";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 interface ModalStudentProps {
   onClose: () => void;
@@ -36,9 +37,9 @@ export default function ModalStudent({ onClose, studentId }: ModalStudentProps) 
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 left-0">
-      <div onClick={onClose}>x</div>
       <div className="bg-white w-full max-w-lg p-4 rounded-lg">
         <Container customClass='bg-form w-full h-50 rounded-xl mb-8'>
+        <div onClick={onClose} className="flex w-full justify-end"><IoMdCloseCircleOutline className="bg-btn-registrar rounded-full size-8"/></div>
           <div className="flex flex-col w-full h-full items-center justify-center">
             <Container customClass="flex flex-col w-3/4 h-auto justify-center">
               <div className="flex flex-col mb-5">

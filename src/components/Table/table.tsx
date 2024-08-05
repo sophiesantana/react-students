@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Student } from "../../interfaces/StudentInterface";
 import ModalStudent from "../Modal/modalStudent";
-import { getStudents } from "../../services/studentService";
 
 interface StudentTableProps {
   students: Student[];
