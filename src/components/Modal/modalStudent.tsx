@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../Buttons/button";
 import Container from "../Container/container";
-import { getStudentById } from "../../services/studentService";
+import { deleteStudentById, getStudentById, updateStudentById } from "../../services/studentService";
 import { Student } from "../../interfaces/StudentInterface";
 
 interface ModalStudentProps {
@@ -14,7 +14,7 @@ export default function ModalStudent({ onClose, studentId }: ModalStudentProps) 
 
   useEffect(() => {
     getStudentById(studentId).then((response) => setStudent(response!));
-  })
+  }, []);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 left-0">
@@ -29,7 +29,8 @@ export default function ModalStudent({ onClose, studentId }: ModalStudentProps) 
                   className="p-2 rounded-xl"
                   type="text"
                   placeholder="Digite aqui seu nome"
-                  value={student?.name}
+                  value={student?.name || ''}
+                  onChange={(e) => setStudent({ ...student, name: e.target.value })}
                 />
               </div>
               <div className="flex flex-col mb-5">
@@ -56,11 +57,13 @@ export default function ModalStudent({ onClose, studentId }: ModalStudentProps) 
             <Container customClass='w-full h-20 flex items-center justify-evenly'>
               <Button
                 customClass="w-full max-w-40 h-10 font-bold bg-btn-registrar rounded-xl"
+                onClick={() => deleteStudentById(student?.id!)}
               >
                 Excluir
               </Button>
               <Button
                 customClass="w-full max-w-40 h-10 font-bold bg-btn-registrar rounded-xl"
+                onClick={() => updateStudentById(student!)}
               >
                 Editar
               </Button>

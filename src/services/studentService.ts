@@ -39,3 +39,23 @@ export const createStudent = (student: Student): Promise<void> => {
       console.error('Erro ao registrar estudante:', error);
     });
 }
+
+export const updateStudentById = (student: Student): Promise<void> => {
+  return api.patch<Student>(`/students/${student.id}`, student)
+    .then(() => {
+      console.log('Estudante atualizado com sucesso!');
+    })
+    .catch((error) => {
+      console.error('Erro ao atualizar estudante:', error);
+    });
+}
+
+export const deleteStudentById = (id: string) => {
+  return api.delete<Student>(`/students/${id}`)
+    .then(() => {
+      console.log('Estudante excluido com sucesso!');
+    })
+    .catch((error) => {
+      console.error('Erro ao excluir estudante:', error);
+    });
+}
